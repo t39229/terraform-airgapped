@@ -1,11 +1,11 @@
 #Terraform provider
 provider "google" {
-  project     = "irisity-devops"
+  project     = "my-project"
   region      = "europe-west4"
   zone        = "europe-west4-c"
 }
 
-#Create pet
+#Create pet.
 resource "random_pet" "cluster" {
 }
 
