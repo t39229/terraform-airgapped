@@ -288,7 +288,7 @@ resource "google_compute_instance_from_template" "gpu" {
 
 resource "null_resource" "exec" {
   provisioner "local-exec" {
-    command = "gsed -r -i 's/air-gap-qa-[a-z]*-[a-z]*/air-gap-qa-${random_pet.cluster.id}/g' config/inventory.ini ../ssh_add_keys_to_nodes.sh ../nginx.sh ../install_nfs_common.sh ../copy_kubeconfig.sh"
+    command = "sed -r -i 's/air-gap-qa-[a-z]*-[a-z]*/air-gap-qa-${random_pet.cluster.id}/g' config/inventory.ini ../ssh_add_keys_to_nodes.sh ../nginx.sh ../install_nfs_common.sh ../copy_kubeconfig.sh"
   }
 }
 
