@@ -103,15 +103,15 @@ resource "google_compute_instance" "air_gap_qa_bastion" {
 
   
   scheduling {
-    preemptible = false
+    preemptible = true
     automatic_restart = false
-    provisioning_model = "-"
+    provisioning_model = "SPOT"
     #on_host_maintenance = "TERMINATE"
   }
 
   boot_disk {
     initialize_params {
-      size  = 250
+      size  = 100
       image = var.vm_image
     }
   }
@@ -176,10 +176,10 @@ resource "google_compute_instance_template" "air_gap_qa_master_node_template" {
   metadata_startup_script = file("files/master_nodes_pre_setup.sh")
 
   scheduling {
-    preemptible = false
+    preemptible = true
     automatic_restart = false
-    #provisioning_model = "SPOT"
-    on_host_maintenance = "TERMINATE"
+    provisioning_model = "SPOT"
+    #on_host_maintenance = "TERMINATE"
   }
   
   disk {
@@ -204,10 +204,10 @@ resource "google_compute_instance_template" "air_gap_qa_worker_node_template" {
   metadata_startup_script = file("files/worker_nodes_pre_setup.sh")
 
   scheduling {
-    preemptible = false
+    preemptible = true
     automatic_restart = false
-    #provisioning_model = "SPOT"
-    on_host_maintenance = "TERMINATE"
+    provisioning_model = "SPOT"
+    #on_host_maintenance = "TERMINATE"
   }
   
   disk {
@@ -236,10 +236,10 @@ resource "google_compute_instance_template" "air_gap_qa_gpu_node_template" {
   #   automatic_restart = false
   # }
   scheduling {
-    preemptible = false
+    preemptible = true
     automatic_restart = false
-    #provisioning_model = "SPOT"
-    on_host_maintenance = "TERMINATE"
+    provisioning_model = "SPOT"
+    #on_host_maintenance = "TERMINATE"
   }
   
   disk {
