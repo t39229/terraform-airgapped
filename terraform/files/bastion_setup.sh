@@ -29,10 +29,10 @@ sudo -u bastion bash -c "mkdir ~/config"
 sudo -u bastion bash -c "cp /etc/ansible/ansible.cfg config/ansible.cfg"
 
 # Add public key to authorized keys.
-sudo -u bastion bash -c "echo 'ssh-rsa ..........................................................................'
+sudo -u bastion bash -c "echo '.......... your-id_rsa.pub................' >> ~/.ssh/authorized_keys"
 
 #If you want to add your public key copy and edit:
-#sudo -u bastion bash -c "echo '<your_public_key>' >> ~/.ssh/authorizes_keys"
+#sudo -u bastion bash -c "echo '<your_public_key>' >> ~/.ssh/authorized_keys"
 #Then connect to bastion vm with "ssh bastion@<ip>"
 
 
